@@ -1,0 +1,35 @@
+import styled from 'styled-components';
+import { primaryLightColor } from '../../config/colors';
+
+export const Title = styled.div`
+  background: ${primaryLightColor};
+  display: flex;
+  flex: 1 1 100vw;
+  height: 120px;
+  padding-left: 35px;
+  align-items: center;
+  box-shadow: 3px 5px rgba(0, 0, 0, .2);
+
+  h1 {
+    font-style: italic;
+    font-weight: 100;
+    text-shadow: 3px 3px rgba(0, 0, 0, .2);
+  }
+  @media only screen and (max-width: 412px){
+    
+    background: ${primaryLightColor};
+    display: flex;
+    flex: 1 1 100vw;
+    height: 100px;
+    padding-left: 35px;
+    align-items: center;
+    box-shadow: 3px 5px rgba(0, 0, 0, .2);
+
+    h1 {
+    font-style: italic;
+    font-weight: 100;
+    text-shadow: 3px 3px rgba(0, 0, 0, .2);
+    color: red;
+  }
+}
+`;

@@ -10,7 +10,7 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case types.LOGIN_SUCCESS: {
-      console.log('Sucesso');
+      // console.log('Sucesso');
       const newState = { ...state };
       newState.isLoggedIn = true;
       newState.usuario = action.payload.usuario;

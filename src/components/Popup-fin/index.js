@@ -46,6 +46,35 @@ export default function Popup_fin() {
       metodo: value.metodo,
     }));
 
+    // #region alinhamento
+    sheet.getColumnKey('aluno').alignment = { vertical: 'middle', horizontal: 'center' };
+    sheet.getColumnKey('valor_matricula').alignment = { vertical: 'middle', horizontal: 'center' };
+    sheet.getColumnKey('desconto').alignment = { vertical: 'middle', horizontal: 'center' };
+    sheet.getColumnKey('valor_recebido').alignment = { vertical: 'middle', horizontal: 'center' };
+    sheet.getColumnKey('data_pagamento').alignment = { vertical: 'middle', horizontal: 'center' };
+    sheet.getColumnKey('data_lancamento').alignment = { vertical: 'middle', horizontal: 'center' };
+    sheet.getColumnKey('mes_referente').alignment = { vertical: 'middle', horizontal: 'center' };
+    sheet.getColumnKey('metodo').alignment = { vertical: 'middle', horizontal: 'center' };
+    // #endregion alinhamento
+
+    // #region formato moeda
+    sheet.getColumnKey('valor_matricula').numFmt = 'R$#,##0.00;[Red]-R$#,##0.00';
+    sheet.getColumnKey('valor_recebido').numFmt = 'R$#,##0.00;[Red]-R$#,##0.00';
+    // #endregion formato moeda
+
+    // porcentagem
+    sheet.getColumnKey('desconto').numFmt = '#"%"';
+
+    // quebra de texto
+    // sheet.getColumnKey('aluno').alignment = { wrapText: true };
+
+    // negrito
+    sheet.getRow(1).font = {
+      bold: true,
+      name: 'Arial Black',
+      family: 2,
+    };
+
     workbook.xlsx.writeBuffer().then((data) => {
       const blob = new Blob([data], {
         type: 'application/vnd.openxmlformats-officedocument.spreadsheet.sheet',

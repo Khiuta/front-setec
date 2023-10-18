@@ -7,7 +7,8 @@ export const Main = styled.main`
   height: calc(100vh - 220px);
   font-style: italic;
   flex-direction: column;
-  // flex-wrap: wrap;
+  overflow-y: auto;
+
 
   .sup {
     display: flex;
@@ -160,33 +161,283 @@ export const Main = styled.main`
     border-radius: 10px;
   }
 
-  @media only screen and (max-width: 1037px) {
-    .form-dis label {
-      font-size: 18px;
-    }
+  @media only screen and (min-width: 412px) and (max-width:428px){
+  display: flex;
+  flex: 20 1 100%;
+  gap: 5%;
+  flex-direction: column;
+
+  height: calc(100vh - 200px);
+
+  font-style: italic;
+
+  overflow-y: auto;
+
+  .sup,
+  .inf {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    gap: 5%;
+
+    padding: 10px;
+
   }
 
-  @media only screen and (max-width: 994px) {
-    .form-dis label {
-      font-size: 17px;
-    }
+  .sup .inst,
+  .sup .turma-div,
+  .inf .dis ,
+  .inf .des {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    background: ${colors.primaryLightColor};
+
+    border: 1px solid black;
+    border-radius: 10px;
   }
 
-  @media only screen and (max-width: 971px) {
-    .sup {
-      flex-direction: column;
-      align-items: center;
-      gap: 34px;
-      height: calc((66px * 100vh - 220px) / 120);
-    }
 
-    .inst,
-    .turma-div {
-      height: 45%;
-    }
+  .sup .inst header,
+  .sup .turma-div header,
+  .inf .dis header,
+  .inf .des header {
+    display: flex;
+    flex: 1 1 70%;
+    justify-content: center;
+    gap: 10%;
 
-    .inf .dis {
-      width: 45%;
-    }
+    width: 100%;
+
+    border-radius: 10px;
+
+    padding-top: 20px;
+  }
+
+  .sup .inst .form-inst,
+  .sup .turma-div .form-turma,
+  .inf .dis .form-dis ,
+  .inf .des .form-des {
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+
+    width: 100%;
+
+    border-radius: 10px;
+
+    padding-top: 30px;
+
+    font-size: 15px;
+  }
+
+  .sup .inst .form-inst label,
+  .sup .turma-div .form-turma label,
+  .inf .form-dis form label,
+  .inf .form-des form label {
+    display: flex;
+    gap: 10px;
+  }
+
+  .sup .inst .form-inst form,
+  .sup .turma-div .form-turma form,
+  .inf .form-dis form,
+  .inf .form-des form  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+
+    font-size: 15px;
+
+    padding: 0px 10px 0px 10px;
+  }
+
+  .sup .inst .form-inst form .botao,
+  .sup .turma-div .form-turma form .botao,
+  .inf .form-dis form .botao,
+  .inf .form-des form .botao {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100%;
+
+
+    padding: 35px;
+
+    border-radius: 10px;
+  }
+
+  button {
+    cursor: pointer;
+
+    border: none;
+    border-radius: 10px;
+
+    background: ${colors.statusGreenColor};
+
+    font-family: 'Raleway';
+    font-size: 16px;
+
+    padding: 10px;
+  }
+
+  input {
+    background: ${colors.primaryLightColor};
+
+    height: 20px;
+
+    font-family: 'Raleway';
+    font-size: 15px;
+  }
+  }
+
+  @media only screen and (min-width: 360px) and (max-width:390px){
+  display: flex;
+  flex: 20 1 100%;
+  gap: 5%;
+  flex-direction: column;
+
+  height: calc(100vh - 200px);
+
+  font-style: italic;
+
+  overflow-y: auto;
+
+  .sup,
+  .inf {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    gap: 5%;
+
+    padding: 10px;
+
+  }
+
+  .sup .inst,
+  .sup .turma-div,
+  .inf .dis ,
+  .inf .des {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    background: ${colors.primaryLightColor};
+
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+
+  .sup .inst header,
+  .sup .turma-div header,
+  .inf .dis header,
+  .inf .des header {
+    display: flex;
+    flex: 1 1 70%;
+    justify-content: center;
+    gap: 10%;
+
+    width: 100%;
+
+    border-radius: 10px;
+
+    padding-top: 20px;
+  }
+
+  .sup .inst .form-inst,
+  .sup .turma-div .form-turma,
+  .inf .dis .form-dis ,
+  .inf .des .form-des {
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+
+    width: 100%;
+
+    border-radius: 10px;
+
+    padding-top: 30px;
+
+    font-size: 10px;
+  }
+
+  .sup .inst .form-inst label,
+  .sup .turma-div .form-turma label,
+  .inf .form-dis form label,
+  .inf .form-des form label {
+    display: flex;
+    gap: 10px;
+  }
+
+  .sup .inst .form-inst form,
+  .sup .turma-div .form-turma form,
+  .inf .form-dis form,
+  .inf .form-des form  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+
+    font-size: 13px;
+
+    padding: 0px 10px 0px 10px;
+  }
+
+  .sup .inst .form-inst form .botao,
+  .sup .turma-div .form-turma form .botao,
+  .inf .form-dis form .botao,
+  .inf .form-des form .botao {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 100%;
+
+
+    padding: 35px;
+
+    border-radius: 10px;
+  }
+
+  button {
+    cursor: pointer;
+
+    border: none;
+    border-radius: 10px;
+
+    background: ${colors.statusGreenColor};
+
+    font-family: 'Raleway';
+    font-size: 15px;
+
+    padding: 10px;
+  }
+
+  input {
+    background: ${colors.primaryLightColor};
+
+    height: 20px;
+
+    font-family: 'Raleway';
+    font-size: 13px;
+  }
   }
 `;

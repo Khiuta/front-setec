@@ -168,7 +168,7 @@ export default function Lancamento() {
                 />
               </label>
               <label htmlFor="data_pag">
-                Data do pagamento
+                Pagamento
                 <input
                   type="date"
                   id="data_pag"

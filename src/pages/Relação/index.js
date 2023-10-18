@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { BsFillCircleFill } from 'react-icons/bs';
 import { FiSearch } from 'react-icons/fi';
 import { IoIosArrowDropdown } from 'react-icons/io';
+import { useDispatch } from 'react-redux';
 import axios from '../../services/axios';
 
+import * as actions from '../../store/modules/auth/actions';
 import * as colors from '../../config/colors';
 import { Content, Search } from './styled';
 import Title from '../../components/Subheader';
@@ -11,6 +13,8 @@ import DropInfo from '../../components/DropInfo';
 import Loading from '../../components/Loading';
 
 export default function Relação() {
+  const dispatch = useDispatch();
+
   const [info, setInfo] = useState(false);
   const [style, setStyle] = useState('drop');
   const [alunos, setAlunos] = useState([]);
@@ -18,13 +22,17 @@ export default function Relação() {
   const [isLoading, setIsLoading] = useState(false);
 
   async function getData() {
-    setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-    const response = await axios.get('/alunos');
-    await axios.get('/lancamentos');
-    setAlunos(response.data);
+      const response = await axios.get('/alunos');
+      await axios.get('/lancamentos');
+      setAlunos(response.data);
 
-    setIsLoading(false);
+      setIsLoading(false);
+    } catch {
+      dispatch(actions.loginFailure());
+    }
   }
 
   useEffect(() => {
@@ -98,10 +106,6 @@ export default function Relação() {
                       )}
                     <p>
                       {aluno.nome}
-                      {' '}
-                      CPF:
-                      {' '}
-                      {aluno.cpf}
                     </p>
                     <IoIosArrowDropdown
                       type="checkbox"
@@ -132,10 +136,6 @@ export default function Relação() {
                 {aluno.pagamento === 'devendo' ? <BsFillCircleFill size={24} color={colors.statusRedColor} className="circle" /> : <BsFillCircleFill size={24} color={colors.statusGreenColor} className="circle" /> }
                 <p>
                   {aluno.nome}
-                  {' '}
-                  CPF:
-                  {' '}
-                  {aluno.cpf}
                 </p>
                 <IoIosArrowDropdown
                   type="checkbox"

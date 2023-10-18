@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import * as actions from '../../store/modules/auth/actions';
 import { Content, Search } from './styled';
 import axios from '../../services/axios';
 import Loading from '../../components/Loading';
 
 export default function Home() {
+  const dispatch = useDispatch();
+
   const [busca, setBusca] = useState('');
 
   const [turmas, setTurma] = useState([]);
@@ -15,15 +19,19 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
 
   async function getData() {
-    setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-    const response = await axios.get('/turma');
-    const response2 = await axios.get('/lancamentos');
+      const response = await axios.get('/turma');
+      const response2 = await axios.get('/lancamentos');
 
-    setLancamento(response2.data);
-    setTurma(response.data);
+      setLancamento(response2.data);
+      setTurma(response.data);
 
-    setIsLoading(false);
+      setIsLoading(false);
+    } catch {
+      dispatch(actions.loginFailure());
+    }
   }
 
   useEffect(() => {

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
+import { useDispatch } from 'react-redux';
 
+import * as actions from '../../store/modules/auth/actions';
 import Title from '../../components/Subheader';
 import { Content } from './styled';
 import Popup_fin from '../../components/Popup-fin';
@@ -10,6 +12,8 @@ import axios from '../../services/axios';
 import Loading from '../../components/Loading';
 
 export default function Financeiro() {
+  const dispatch = useDispatch();
+
   const [popup, setPopup] = useState(false);
   const [pagamentos, setPagamentos] = useState([]);
   const [meses, setMeses] = useState([]);
@@ -20,8 +24,8 @@ export default function Financeiro() {
     setPopup(!newPopup);
   };
 
-  useEffect(() => {
-    async function getData() {
+  async function getData() {
+    try {
       setIsLoading(true);
 
       const response = await axios.get('/lancamentos/lan/ordem');
@@ -56,7 +60,12 @@ export default function Financeiro() {
       ]);
 
       setIsLoading(false);
+    } catch {
+      dispatch(actions.loginFailure());
     }
+  }
+
+  useEffect(() => {
     getData();
   }, []);
 
@@ -126,7 +135,7 @@ export default function Financeiro() {
           <header className="sup">
             <button type="submit" onClick={handlePopup}>Exportar</button>
           </header>
-
+          {popup && <Popup_fin />}
           <div className="inf">
 
             {pagamentos.map((pagamento) => (
@@ -135,7 +144,7 @@ export default function Financeiro() {
 
                 <p>{pagamento.data_pagamento}</p>
                 {' '}
-                <p>{`Valor recebido: R$${pagamento.valor_recebido}`}</p>
+                <p>{`R$${pagamento.valor_recebido}`}</p>
                 {' '}
                 <p>{pagamento.metodo}</p>
 
@@ -148,8 +157,6 @@ export default function Financeiro() {
         </div>
 
         <div className="lado-2">
-
-          {popup && <Popup_fin />}
 
           <ResponsiveContainer width="100%" height="100%">
             <BarChart

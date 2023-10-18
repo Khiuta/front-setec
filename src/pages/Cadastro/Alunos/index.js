@@ -212,7 +212,7 @@ export default function Alunos() {
               />
             </label>
             <label htmlFor="turma">
-              Código da Turma
+              Código
               <input
                 type="text"
                 value={turma}

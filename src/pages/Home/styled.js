@@ -187,7 +187,7 @@ export const Content = styled.main`
     }
 
     .card .info {
-      font-size: 2px;
+      font-size: 20px;
       gap: 20%;
     }
 
@@ -231,7 +231,7 @@ export const Content = styled.main`
     }
 
     .card .info {
-      font-size: 23px;
+      font-size: 20px;
       gap: 20%;
     }
 

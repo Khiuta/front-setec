@@ -37,9 +37,8 @@ export default function Relação() {
     }
   }
   async function remover(id) {
+    window.location.reload();
     await axios.delete(`/alunos/${id}`);
-
-    getData();
   }
 
   useEffect(() => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { AiOutlineDelete } from 'react-icons/ai';
 import axios from '../../services/axios';
 import { Info } from './styled';
 
@@ -11,12 +10,6 @@ export default function DropInfo({
   const date = matricula.split('T');
   const dat = date[0].split('-');
   console.log(date);
-
-  async function remover() {
-    await axios.delete(`/alunos/${id}`);
-
-    data();
-  }
 
   return (
     <Info className="drop-info">
@@ -90,11 +83,7 @@ export default function DropInfo({
         </p>
 
       </div>
-      <AiOutlineDelete
-        className="delet"
-        size={30}
-        onClick={remover}
-      />
+
     </Info>
   );
 }

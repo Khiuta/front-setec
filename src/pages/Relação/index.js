@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BsFillCircleFill } from 'react-icons/bs';
 import { FiSearch } from 'react-icons/fi';
 import { IoIosArrowDropdown } from 'react-icons/io';
+import { AiOutlineDelete } from 'react-icons/ai';
+
 import { useDispatch } from 'react-redux';
 import axios from '../../services/axios';
 
@@ -33,6 +35,11 @@ export default function Relação() {
     } catch {
       dispatch(actions.loginFailure());
     }
+  }
+  async function remover(id) {
+    await axios.delete(`/alunos/${id}`);
+
+    getData();
   }
 
   useEffect(() => {
@@ -139,6 +146,11 @@ export default function Relação() {
                 <p>
                   {aluno.nome}
                 </p>
+                <AiOutlineDelete
+                  className="delet"
+                  size={30}
+                  onClick={remover(aluno.id)}
+                />
                 <IoIosArrowDropdown
                   type="checkbox"
                   onClick={() => handleDrop(aluno.id)}

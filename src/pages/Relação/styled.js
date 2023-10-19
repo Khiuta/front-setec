@@ -53,6 +53,12 @@ export const Content = styled.main`
     border-bottom: 3px solid rgba(255, 255, 255, .5);
     background-clip: padding-box;
   }
+  .delet{
+    position: absolute;
+    top: 95vh;
+    left: 72vw;
+    cursor: pointer;
+  }
 
   @media only screen and (max-width: 1024px) {
     .alunos {

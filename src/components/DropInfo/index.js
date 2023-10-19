@@ -6,7 +6,7 @@ import axios from '../../services/axios';
 import { Info } from './styled';
 
 export default function DropInfo({
-  id, nome, cpf, rg, nasc, igr, end, natu, tel, stts, turma, matricula,
+  id, nome, cpf, rg, nasc, igr, end, natu, tel, stts, turma, matricula, data,
 }) {
   const date = matricula.split('T');
   const dat = date[0].split('-');
@@ -15,7 +15,7 @@ export default function DropInfo({
   async function remover() {
     await axios.delete(`/alunos/${id}`);
 
-    window.location.reload();
+    data();
   }
 
   return (
@@ -112,4 +112,5 @@ DropInfo.propTypes = {
   turma: PropTypes.string.isRequired,
   matricula: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  data: PropTypes.func.isRequired,
 };

@@ -127,7 +127,7 @@ export default function Relação() {
                     turma={aluno.turma}
                     matricula={aluno.created_at}
                     id={aluno.id}
-                    data={getData}
+                    data={getData()}
 
                   />
                 </React.Fragment>

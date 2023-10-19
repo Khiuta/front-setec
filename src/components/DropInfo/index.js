@@ -1,14 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { AiOutlineDelete } from 'react-icons/ai';
+import axios from '../../services/axios';
 import { Info } from './styled';
 
 export default function DropInfo({
-  nome, cpf, rg, nasc, igr, end, natu, tel, stts, turma, matricula,
+  id, nome, cpf, rg, nasc, igr, end, natu, tel, stts, turma, matricula,
 }) {
   const date = matricula.split('T');
   const dat = date[0].split('-');
   console.log(date);
+
+  async function remover() {
+    await axios.delete(`/alunos/${id}`);
+  }
 
   return (
     <Info className="drop-info">
@@ -80,7 +86,13 @@ export default function DropInfo({
           {' '}
           {`${dat[2]}/${dat[1]}/${dat[0]}`}
         </p>
+
       </div>
+      <AiOutlineDelete
+        className="delet"
+        size={30}
+        onClick={remover}
+      />
     </Info>
   );
 }
@@ -97,4 +109,5 @@ DropInfo.propTypes = {
   stts: PropTypes.string.isRequired,
   turma: PropTypes.string.isRequired,
   matricula: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };

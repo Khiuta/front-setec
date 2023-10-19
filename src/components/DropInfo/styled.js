@@ -25,6 +25,13 @@ export const Info = styled.div`
   flex-direction: row;
   animation: show-drop .5s forwards;
 
+  .delet{
+    position: absolute;
+    top: 95vh;
+    left: 72vw;
+    cursor: pointer;
+  }
+
   @media only screen and (max-width: 500px) {
     flex-direction: column;
     overflow: auto;

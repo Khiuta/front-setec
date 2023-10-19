@@ -126,6 +126,7 @@ export default function Relação() {
                     stts={aluno.status_civil}
                     turma={aluno.turma}
                     matricula={aluno.created_at}
+                    id={aluno.id}
 
                   />
                 </React.Fragment>

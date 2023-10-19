@@ -36,10 +36,10 @@ export default function Relação() {
       dispatch(actions.loginFailure());
     }
   }
-  async function remover(id) {
-    window.location.reload();
+
+  const handleRemove = async (id) => {
     await axios.delete(`/alunos/${id}`);
-  }
+  };
 
   useEffect(() => {
     getData();
@@ -113,6 +113,11 @@ export default function Relação() {
                     <p>
                       {aluno.nome}
                     </p>
+                    <AiOutlineDelete
+                      className="delet"
+                      size={30}
+                      onClick={() => handleRemove(aluno.id)}
+                    />
                     <IoIosArrowDropdown
                       type="checkbox"
                       onClick={() => handleDrop(aluno.id)}
@@ -148,7 +153,7 @@ export default function Relação() {
                 <AiOutlineDelete
                   className="delet"
                   size={30}
-                  onClick={remover(aluno.id)}
+                  onClick={() => handleRemove(aluno.id)}
                 />
                 <IoIosArrowDropdown
                   type="checkbox"

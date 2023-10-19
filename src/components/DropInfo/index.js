@@ -15,7 +15,7 @@ export default function DropInfo({
   async function remover() {
     await axios.delete(`/alunos/${id}`);
 
-    data();
+    return data;
   }
 
   return (

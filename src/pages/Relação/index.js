@@ -39,6 +39,8 @@ export default function Relação() {
 
   const handleRemove = async (id) => {
     await axios.delete(`/alunos/${id}`);
+
+    getData();
   };
 
   useEffect(() => {

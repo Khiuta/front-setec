@@ -54,7 +54,8 @@ export const Content = styled.main`
     background-clip: padding-box;
   }
   .delet{
-
+    position: relative;
+    left: 10vw;
     cursor: pointer;
   }
 

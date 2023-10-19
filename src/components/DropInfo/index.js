@@ -5,7 +5,7 @@ import axios from '../../services/axios';
 import { Info } from './styled';
 
 export default function DropInfo({
-  id, nome, cpf, rg, nasc, igr, end, natu, tel, stts, turma, matricula, data,
+  nome, cpf, rg, nasc, igr, end, natu, tel, stts, turma, matricula,
 }) {
   const date = matricula.split('T');
   const dat = date[0].split('-');
@@ -100,6 +100,5 @@ DropInfo.propTypes = {
   stts: PropTypes.string.isRequired,
   turma: PropTypes.string.isRequired,
   matricula: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  data: PropTypes.func.isRequired,
+
 };

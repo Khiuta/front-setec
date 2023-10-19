@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import * as colors from '../../config/colors';
 
 export const Search = styled.div`
-  // padding: 25px;
   display: flex;
   flex: 1 1 100vw;
   height: 55px;
@@ -27,19 +26,14 @@ export const Search = styled.div`
 `;
 
 export const Content = styled.main`
-  // border: 5px solid red;
   display: flex;
   flex: 20 1 100vw;
   height: calc(100vh - 275px);
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
-  // margin: 80px;
   gap: 20px;
 
-  .drop-info {
-    // display: none;
-  }
 
   .alunos {
     display: flex;
@@ -54,8 +48,9 @@ export const Content = styled.main`
     background-clip: padding-box;
   }
   .delet{
+    margin: 0;
     position: relative;
-    left: 10vw;
+    left: 8vw;
     cursor: pointer;
   }
 
@@ -92,7 +87,7 @@ export const Content = styled.main`
 
   section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
     padding: 5px;
     background: ${colors.primaryLightColor};

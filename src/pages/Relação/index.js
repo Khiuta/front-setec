@@ -38,9 +38,7 @@ export default function Relação() {
   }
 
   const handleRemove = async (id) => {
-    await axios.delete(`/alunos/${id}`);
-
-    getData();
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -140,7 +138,6 @@ export default function Relação() {
                     turma={aluno.turma}
                     matricula={aluno.created_at}
                     id={aluno.id}
-                    data={getData()}
 
                   />
                 </React.Fragment>

@@ -55,8 +55,8 @@ export const Content = styled.main`
   }
   .delet{
     position: absolute;
-    top: 95vh;
-    left: 72vw;
+    top: 10vh;
+    left: 10vw;
     cursor: pointer;
   }
 

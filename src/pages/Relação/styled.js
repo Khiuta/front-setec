@@ -101,6 +101,11 @@ export const Content = styled.main`
     box-shadow: 3px 5px rgba(0, 0, 0, .2);
   }
 
+  .icons {
+    display: flex;
+    gap: 5%;
+  }
+
   @media only screen and (max-width: 1334px) {
     section {
       gap: 7%;
@@ -147,6 +152,10 @@ export const Content = styled.main`
     transform: rotate(0deg);
     animation: turn-down 1s forwards;
     min-width: 24px;
+  }
+
+  section .thrash {
+    cursor: pointer;
   }
 
   section .drop-2 {

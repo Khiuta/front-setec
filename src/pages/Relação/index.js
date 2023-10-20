@@ -4,14 +4,15 @@ import { FiSearch } from 'react-icons/fi';
 import { IoIosArrowDropdown } from 'react-icons/io';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
-import axios from '../../services/axios';
 
+import axios from '../../services/axios';
 import * as actions from '../../store/modules/auth/actions';
 import * as colors from '../../config/colors';
 import { Content, Search } from './styled';
 import Title from '../../components/Subheader';
 import DropInfo from '../../components/DropInfo';
 import Loading from '../../components/Loading';
+import Popup_del from '../../components/Popup-del';
 
 export default function Relação() {
   const dispatch = useDispatch();
@@ -21,6 +22,11 @@ export default function Relação() {
   const [alunos, setAlunos] = useState([]);
   const [busca, setBusca] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [popup, setPopup] = useState(false);
+  const [p_nome, setPnome] = useState('');
+  const [s_nome, setSnome] = useState('');
+  const [t_nome, setTnome] = useState('');
+  const [id, setId] = useState('');
 
   async function getData() {
     try {
@@ -60,9 +66,30 @@ export default function Relação() {
     }
   };
 
-  const handleRemove = async (id) => {
-    await axios.delete(`/alunos/${id}`);
+  const handleRemove = async (identifier) => {
+    await axios.delete(`/alunos/${identifier}`);
     getData();
+    const newPop = popup;
+    setPopup(!newPop);
+  };
+
+  const handlePop = (nome, identifier) => {
+    const newPop = popup;
+    setPopup(!newPop);
+
+    let aluno = nome;
+    aluno = aluno.split(' ');
+
+    setPnome(aluno[0]);
+    setId(identifier);
+
+    if (aluno[1].length <= 3) {
+      setSnome(aluno[1]);
+      return setTnome(aluno[2]);
+    }
+
+    setSnome(aluno[1]);
+    setTnome('');
   };
 
   if (isLoading) {
@@ -73,6 +100,19 @@ export default function Relação() {
 
   return (
     <>
+      {popup && (
+      <Popup_del
+        p_nome={p_nome}
+        s_nome={s_nome}
+        t_nome={t_nome}
+        cancel={() => {
+          const newPop = popup;
+          setPopup(!newPop);
+        }}
+        confirm={handleRemove}
+        id={id}
+      />
+      )}
       <Title
         nome="Relação de alunos"
       />
@@ -113,13 +153,19 @@ export default function Relação() {
                     <p>
                       {aluno.nome}
                     </p>
-                    <AiOutlineDelete />
-                    <IoIosArrowDropdown
-                      type="checkbox"
-                      onClick={() => handleDrop(aluno.id)}
-                      className={style}
-                      size={24}
-                    />
+                    <div className="icons">
+                      <AiOutlineDelete
+                        className="thrash"
+                        size={28}
+                        onClick={handlePop}
+                      />
+                      <IoIosArrowDropdown
+                        type="checkbox"
+                        onClick={() => handleDrop(aluno.id)}
+                        className="drop"
+                        size={28}
+                      />
+                    </div>
                   </section>
                   <DropInfo
                     nome={aluno.nome}
@@ -140,20 +186,25 @@ export default function Relação() {
             }
             return (
               <section key={aluno.id}>
-                {aluno.pagamento === 'devendo' ? <BsFillCircleFill size={24} color={colors.statusRedColor} className="circle" /> : <BsFillCircleFill size={24} color={colors.statusGreenColor} className="circle" /> }
+                {aluno.pagamento === 'devendo'
+                  ? <BsFillCircleFill size={24} color={colors.statusRedColor} className="circle" />
+                  : <BsFillCircleFill size={24} color={colors.statusGreenColor} className="circle" />}
                 <p>
                   {aluno.nome}
                 </p>
-                <AiOutlineDelete
-                  size={24}
-                  onClick={() => handleRemove(aluno.id)}
-                />
-                <IoIosArrowDropdown
-                  type="checkbox"
-                  onClick={() => handleDrop(aluno.id)}
-                  className="drop"
-                  size={24}
-                />
+                <div className="icons">
+                  <AiOutlineDelete
+                    className="thrash"
+                    size={28}
+                    onClick={() => handlePop(aluno.nome, aluno.id)}
+                  />
+                  <IoIosArrowDropdown
+                    type="checkbox"
+                    onClick={() => handleDrop(aluno.id)}
+                    className="drop"
+                    size={28}
+                  />
+                </div>
               </section>
             );
           })}

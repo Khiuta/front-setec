@@ -37,5 +37,6 @@ module.exports = {
     'react/jsx-pascal-case': 'off',
     'no-unused-vars': 'off',
     'no-plusplus': 'off',
+    'react/forbid-prop-types': 'off',
   },
 };

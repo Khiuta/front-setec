@@ -38,5 +38,6 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-plusplus': 'off',
     'react/forbid-prop-types': 'off',
+    'import/no-named-as-default': 'off',
   },
 };

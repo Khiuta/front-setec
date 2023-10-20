@@ -42,6 +42,7 @@ export const Pop = styled.main`
     font-size: 20px;
     font-family: 'Raleway';
     font-weight: bold;
+    cursor: pointer;
   }
 
   #cancel {

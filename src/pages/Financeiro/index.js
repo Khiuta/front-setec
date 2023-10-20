@@ -16,7 +16,7 @@ export default function Financeiro() {
 
   const [popup, setPopup] = useState(false);
   const [pagamentos, setPagamentos] = useState([]);
-  const [meses, setMeses] = useState([]);
+  const [faturamento, setFat] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handlePopup = () => {
@@ -29,35 +29,10 @@ export default function Financeiro() {
       setIsLoading(true);
 
       const response = await axios.get('/lancamentos/lan/ordem');
-
-      const janeiro = await axios.get('/lancamentos/Janeiro');
-      const fevereiro = await axios.get('/lancamentos/Fevereiro');
-      const marco = await axios.get('/lancamentos/Marco');
-      const abril = await axios.get('/lancamentos/Abril');
-      const maio = await axios.get('/lancamentos/Maio');
-      const junho = await axios.get('/lancamentos/Junho');
-      const julho = await axios.get('/lancamentos/Julho');
-      const agosto = await axios.get('/lancamentos/Agosto');
-      const setembro = await axios.get('/lancamentos/Setembro');
-      const outubro = await axios.get('/lancamentos/Outubro');
-      const novembro = await axios.get('/lancamentos/Novembro');
-      const dezembro = await axios.get('/lancamentos/Dezembro');
-
       setPagamentos(response.data);
-      setMeses([
-        janeiro.data,
-        fevereiro.data,
-        marco.data,
-        abril.data,
-        maio.data,
-        junho.data,
-        julho.data,
-        agosto.data,
-        setembro.data,
-        outubro.data,
-        novembro.data,
-        dezembro.data,
-      ]);
+
+      const response2 = await axios.get('/lancamentos/calc');
+      setFat(response2.data);
 
       setIsLoading(false);
     } catch {
@@ -72,51 +47,51 @@ export default function Financeiro() {
   const dados = [
     {
       mes: 'Jan',
-      lucro: meses[0],
+      lucro: faturamento[0],
     },
     {
       mes: 'Fev',
-      lucro: meses[1],
+      lucro: faturamento[1],
     },
     {
       mes: 'Mar',
-      lucro: meses[2],
+      lucro: faturamento[2],
     },
     {
       mes: 'Abr',
-      lucro: meses[3],
+      lucro: faturamento[3],
     },
     {
       mes: 'Maio',
-      lucro: meses[4],
+      lucro: faturamento[4],
     },
     {
       mes: 'Jun',
-      lucro: meses[5],
+      lucro: faturamento[5],
     },
     {
       mes: 'Jul',
-      lucro: meses[6],
+      lucro: faturamento[6],
     },
     {
       mes: 'Ago',
-      lucro: meses[7],
+      lucro: faturamento[7],
     },
     {
       mes: 'Set',
-      lucro: meses[8],
+      lucro: faturamento[8],
     },
     {
       mes: 'Out',
-      lucro: meses[9],
+      lucro: faturamento[9],
     },
     {
       mes: 'Nov',
-      lucro: meses[10],
+      lucro: faturamento[10],
     },
     {
       mes: 'Dez',
-      lucro: meses[11],
+      lucro: faturamento[11],
     },
   ];
 

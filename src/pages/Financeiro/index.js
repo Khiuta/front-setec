@@ -47,51 +47,51 @@ export default function Financeiro() {
   const dados = [
     {
       mes: 'Jan',
-      lucro: faturamento[0],
+      lucro: faturamento.totalJan,
     },
     {
       mes: 'Fev',
-      lucro: faturamento[1],
+      lucro: faturamento.totalFev,
     },
     {
       mes: 'Mar',
-      lucro: faturamento[2],
+      lucro: faturamento.totalMar,
     },
     {
       mes: 'Abr',
-      lucro: faturamento[3],
+      lucro: faturamento.totalAbril,
     },
     {
       mes: 'Maio',
-      lucro: faturamento[4],
+      lucro: faturamento.totalMaio,
     },
     {
       mes: 'Jun',
-      lucro: faturamento[5],
+      lucro: faturamento.totalJun,
     },
     {
       mes: 'Jul',
-      lucro: faturamento[6],
+      lucro: faturamento.totalJul,
     },
     {
       mes: 'Ago',
-      lucro: faturamento[7],
+      lucro: faturamento.totalAgo,
     },
     {
       mes: 'Set',
-      lucro: faturamento[8],
+      lucro: faturamento.totalSet,
     },
     {
       mes: 'Out',
-      lucro: faturamento[9],
+      lucro: faturamento.totalOut,
     },
     {
       mes: 'Nov',
-      lucro: faturamento[10],
+      lucro: faturamento.totalNov,
     },
     {
       mes: 'Dez',
-      lucro: faturamento[11],
+      lucro: faturamento.totalDez,
     },
   ];
 

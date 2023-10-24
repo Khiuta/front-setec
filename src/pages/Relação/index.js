@@ -135,28 +135,21 @@ export default function Relação() {
                 <React.Fragment key={aluno.id}>
 
                   <section>
-                    {() => {
-                      switch (aluno.pagamento) {
-                        case 'devendo':
-                          return (
-                            <BsFillCircleFill
-                              size={24}
-                              color={colors.statusRedColor}
-                              className="circle"
-                            />
-                          );
-                        case 'no prazo':
-                          return (
-                            <BsFillCircleFill
-                              size={24}
-                              color={colors.statusGreenColor}
-                              className="circle"
-                            />
-                          );
-                        default:
-                          break;
-                      }
-                    }}
+                    {aluno.pagamento === 'devendo'
+                      ? (
+                        <BsFillCircleFill
+                          size={24}
+                          color={colors.statusRedColor}
+                          className="circle"
+                        />
+                      )
+                      : (
+                        <BsFillCircleFill
+                          size={24}
+                          color={colors.statusGreenColor}
+                          className="circle"
+                        />
+                      )}
                     <p>
                       {aluno.nome}
                     </p>
@@ -193,28 +186,21 @@ export default function Relação() {
             }
             return (
               <section key={aluno.id}>
-                {() => {
-                  switch (aluno.pagamento) {
-                    case 'devendo':
-                      return (
-                        <BsFillCircleFill
-                          size={24}
-                          color={colors.statusRedColor}
-                          className="circle"
-                        />
-                      );
-                    case 'no prazo':
-                      return (
-                        <BsFillCircleFill
-                          size={24}
-                          color={colors.statusGreenColor}
-                          className="circle"
-                        />
-                      );
-                    default:
-                      break;
-                  }
-                }}
+                {aluno.pagamento === 'devendo'
+                  ? (
+                    <BsFillCircleFill
+                      size={24}
+                      color={colors.statusRedColor}
+                      className="circle"
+                    />
+                  )
+                  : (
+                    <BsFillCircleFill
+                      size={24}
+                      color={colors.statusGreenColor}
+                      className="circle"
+                    />
+                  )}
                 <p>
                   {aluno.nome}
                 </p>

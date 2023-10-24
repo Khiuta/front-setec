@@ -197,12 +197,12 @@ export const Content = styled.main`
 
     .card .info {
       font-size: 20px;
-      gap: 20%;
+      gap: 10%;
     }
 
     .card header {
       align-items: center;
-      font-size: 28px;
+      font-size: 25px;
     }
 
   }
@@ -241,7 +241,7 @@ export const Content = styled.main`
 
     .card .info {
       font-size: 20px;
-      gap: 20%;
+      gap: 10%;
     }
 
     .card header {

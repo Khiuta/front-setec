@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
+import { FiEdit } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux';
 
 import * as actions from '../../store/modules/auth/actions';
 import { Content, Search } from './styled';
 import axios from '../../services/axios';
 import Loading from '../../components/Loading';
+import Popup_turma from '../../components/Popup-turma';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -17,6 +19,12 @@ export default function Home() {
   const [lancamento, setLancamento] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const [editing, setEditing] = useState(false);
+
+  const [identifier, setIdentifier] = useState('');
+
+  const [codigo, setCodigo] = useState('');
 
   async function getData() {
     try {
@@ -38,6 +46,13 @@ export default function Home() {
     getData();
   }, []);
 
+  const handleEdit = (id, cod) => {
+    const newEdit = editing;
+    setEditing(!newEdit);
+    setIdentifier(id);
+    setCodigo(cod);
+  };
+
   if (isLoading) {
     return (
       <Loading />
@@ -46,6 +61,14 @@ export default function Home() {
 
   return (
     <>
+      {editing
+      && (
+      <Popup_turma
+        cancel={handleEdit}
+        id={identifier}
+        sala_codigo={codigo}
+      />
+      )}
       <Search>
         <input
           type="text"
@@ -58,7 +81,7 @@ export default function Home() {
           ? turma
           : turma.nome_turma.toLowerCase().includes(busca)
         )).map((turma) => (
-          <div className="card">
+          <div className="card" key={turma.id}>
             <header><h2>{turma.nome_turma}</h2></header>
             <section className="info">
               <p>
@@ -76,6 +99,13 @@ export default function Home() {
                 {' '}
                 {turma.qtd_devedores}
               </p>
+            </section>
+            <section className="edit">
+              <FiEdit
+                size={36}
+                className="icon-edit"
+                onClick={() => handleEdit(turma.id, turma.sala_codigo)}
+              />
             </section>
           </div>
         ))}

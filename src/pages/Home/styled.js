@@ -111,6 +111,15 @@ export const Content = styled.main`
     padding: 0px 10px 0px 10px;
   }
 
+  .edit {
+    display: flex;
+    justify-content: flex-end;
+
+    .icon-edit {
+      cursor: pointer;
+    }
+  }
+
   @media only screen and (min-width: 500px) and (max-width: 834px) {
     padding: 10px;
     overflow-x: scroll;

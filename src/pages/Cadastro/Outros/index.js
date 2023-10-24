@@ -9,6 +9,7 @@ import { Main } from './styled';
 export default function Outros() {
   const [nome_inst, setInst] = useState('');
   const [nome_turma, setTurma] = useState('');
+  const [disciplina_atual, setDisc] = useState('');
   const [desconto, setDesconto] = useState('');
   const [valor, setValor] = useState('');
   const [nome_dis, setDis] = useState('');
@@ -66,7 +67,7 @@ export default function Outros() {
         if (form_errors) break;
         try {
           const response = await axios.post(`/${endpoint}`, {
-            nome_turma, sala_codigo,
+            nome_turma, sala_codigo, disciplina_atual,
           });
           console.log(response.data);
           toast.success('Turma cadastrada.');
@@ -159,6 +160,16 @@ export default function Outros() {
                     id="codigo-turma"
                     value={sala_codigo}
                     onChange={(e) => setCodigo(e.target.value)}
+                  />
+                </label>
+                <label htmlFor="disc-turma">
+                  Disciplina da turma
+                  <input
+                    type="text"
+                    placeholder="Disciplina da turma"
+                    id="disc-turma"
+                    value={disciplina_atual}
+                    onChange={(e) => setDisc(e.target.value)}
                   />
                 </label>
                 <div className="botao">

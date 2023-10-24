@@ -119,7 +119,7 @@ export default function Relação() {
       <Search>
         <input
           type="text"
-          placeholder="Digite sua busca"
+          placeholder="Pesquise o aluno"
           onChange={(e) => setBusca(e.target.value)}
         />
         <FiSearch size={30} className="lupa" />

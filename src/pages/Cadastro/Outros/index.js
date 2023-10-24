@@ -143,7 +143,7 @@ export default function Outros() {
             <div className="form-turma">
               <form onSubmit={handleSubmit} className="turma">
                 <label htmlFor="nome-turma">
-                  Nome da turma
+                  Professor da turma
                   <input
                     type="text"
                     placeholder="Professor da turma"

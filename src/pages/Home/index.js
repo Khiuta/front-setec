@@ -100,7 +100,7 @@ export default function Home() {
                 {turma.qtd_devedores}
               </p>
               <p>
-                Codigo da turma:
+                Código da turma:
                 {' '}
                 {turma.sala_codigo}
               </p>

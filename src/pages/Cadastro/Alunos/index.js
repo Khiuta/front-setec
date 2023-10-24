@@ -184,7 +184,7 @@ export default function Alunos() {
               />
             </label>
             <label htmlFor="stts">
-              Status civil
+              Estado civil
               <input
                 list="opt"
                 value={status_civil}

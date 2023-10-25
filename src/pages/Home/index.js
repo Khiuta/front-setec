@@ -30,8 +30,8 @@ export default function Home() {
     try {
       setIsLoading(true);
 
-      const response = await axios.get('/turma');
       const response2 = await axios.get('/lancamentos');
+      const response = await axios.get('/turma');
 
       setLancamento(response2.data);
       setTurma(response.data);

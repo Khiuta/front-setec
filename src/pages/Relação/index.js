@@ -32,11 +32,13 @@ export default function Relação() {
     try {
       setIsLoading(true);
 
-      const response = await axios.get('/alunos');
       await axios.get('/lancamentos');
+      const response = await axios.get('/alunos');
       setAlunos(response.data);
-
-      setIsLoading(false);
+      setInterval(() => {
+        console.log('oi');
+        setIsLoading(false);
+      }, 3000);
     } catch {
       dispatch(actions.loginFailure());
     }

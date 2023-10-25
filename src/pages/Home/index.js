@@ -83,7 +83,7 @@ export default function Home() {
           ? turma
           : turma.nome_turma.toLowerCase().includes(busca)
         )).map((turma) => (
-          <div className="card" key={turma.id}>
+          <div className="card" draggable key={turma.id}>
             <header><h2>{turma.nome_turma}</h2></header>
             <section className="info">
               <p>

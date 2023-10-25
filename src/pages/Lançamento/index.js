@@ -112,7 +112,9 @@ export default function Lancamento() {
               <label htmlFor="nome_aluno">
                 Nome do aluno
                 <input
+                  autoComplete="off"
                   type="search"
+                  list="lista-alunos"
                   id="nome_aluno"
                   value={aluno}
                   onChange={(e) => setNome(e.target.value)}
@@ -134,7 +136,15 @@ export default function Lancamento() {
               </label>
               <label htmlFor="desconto">
                 Desconto
-                <input type="search" id="desconto" list="lista" onChange={(e) => setDesconto(parseInt(e.target.value, 10))} onBlur={handleBlur} value={desconto} />
+                <input
+                  autoComplete="off"
+                  type="search"
+                  id="desconto"
+                  list="lista"
+                  onChange={(e) => setDesconto(parseInt(e.target.value, 10))}
+                  onBlur={handleBlur}
+                  value={desconto}
+                />
 
               </label>
               <datalist id="lista">

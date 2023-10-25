@@ -35,8 +35,10 @@ export default function Home() {
 
       setLancamento(response2.data);
       setTurma(response.data);
-
-      setIsLoading(false);
+      setInterval(() => {
+        console.log('oi');
+        setIsLoading(false);
+      }, 3000);
     } catch {
       dispatch(actions.loginFailure());
     }

@@ -53,7 +53,67 @@ export const Content = styled.main`
     display: flex;
     align-items: flex-end;
   }
+  @media only screen and (min-width: 768px) and (max-width: 900px) {
+  display: flex;
+  flex: 20 1 100vw;
+  height: calc(100vh - 220px);
+  // background: #a1a1a1;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
 
+  form {
+    // border: 1px solid #a1a1a1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+
+  input {
+    font-size: 30px;
+    font-family: 'Raleway';
+  }
+
+  .lado-1,
+  .lado-2 {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    gap: 15px;
+    padding: 30px;
+
+    position: relative;
+    top: 10vh;
+  }
+
+  .lado-1 label,
+  .lado-2 label {
+    display: flex;
+    gap: 10px;
+  }
+
+  button {
+    cursor: pointer;
+    background: ${statusGreenColor};
+    width: 15vw;
+    height: 5vh;
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: 300;
+    position: relative;
+    top: 10vh;
+  }
+
+  .botao {
+    height: 212px;
+    display: flex;
+    align-items: center;
+  }
+  }
   @media only screen and (min-width: 412px) and (max-width: 428px) {
   display: flex;
   flex: 20 1 100vw;

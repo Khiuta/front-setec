@@ -62,13 +62,15 @@ export const Content = styled.main`
 
   @media only screen and (max-width: 900px) {
     .alunos {
-      width: 60%;
+      width: 90%;
+      height: 70%;
     }
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 768px) {
     .alunos {
-      width: 80%;
+      width: 90%;
+      height: 70%;
     }
   }
 

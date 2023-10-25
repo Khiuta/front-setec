@@ -70,7 +70,82 @@ export const Popup = styled.div`
   #ano {
     width: 70px;
   }
+  @media only screen and (min-width:820px) and (max-width: 900px){
+    background: ${primaryLightColor};
+    display: flex;
+    flex: 1 1 200px;
+    width: 60vw;
+    height: 200px;
+    flex-direction: column;
+    margin: 20px;
+    font-weight: 500;
+    border: 1px solid #000;
+    border-radius: 10px;
+    z-index: 100;
+    position: absolute;
+    top: 24%;
 
+    .sup {
+      display: flex;
+      flex: 1 3 100%;
+    }
+
+    .sup {
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+      font-size: 19px;
+    }
+
+    .mid {
+      display: flex;
+      flex: 1 1 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 20px ;
+      gap: 30px;
+
+      text-align: center;
+    }
+
+    .inf {
+      display: flex;
+      flex: 1 1 100%;
+      padding: 10px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    button {
+      min-height: 40px;
+      width: 100px;
+      font-size: 15px;
+      background: ${statusGreenColor};
+      border: none;
+      border-radius: 10px;
+      font-family: 'Raleway';
+      cursor: pointer;
+    }
+
+    input {
+      background: ${primaryLightColor};
+      font-size: 25 px;
+    }
+
+    label {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    #mes {
+      width: 80px;
+    }
+
+    #ano {
+      width: 70px;
+    }
+  }
   @media only screen and (min-width: 412px) and (max-width: 428px){
     background: ${primaryLightColor};
     display: flex;

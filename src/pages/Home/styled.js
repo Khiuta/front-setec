@@ -154,7 +154,7 @@ export const Content = styled.main`
 
     .card .info {
       font-size: 30px;
-      gap: 20%;
+      gap: 15%;
     }
 
     .card header {

@@ -15,7 +15,7 @@ export const Nav = styled.nav`
       font-family: 'Raleway', sans-serif;
       font-size: 36px;
       cursor: pointer;
-      left: 40%;
+      left: 43%;
     }
 
     a {
@@ -27,6 +27,35 @@ export const Nav = styled.nav`
       position: relative;
       left: 1%;
       cursor: pointer;
+    }
+    @media only screen and (min-width: 820px) and (max-width: 900px){
+      position: static;
+      background: ${primaryColor};
+      display: flex;
+      flex: 1 1 100vw;
+      height: 90px;
+      align-items: center;
+
+    h1 {
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 50px;
+      cursor: pointer;
+      left: 38%;
+      text-align: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .menu {
+
+      position: relative;
+      left: 1%;
+      cursor: pointer;
+    }
     }
 
     @media only screen and (min-width: 412px) and (max-width: 428px){

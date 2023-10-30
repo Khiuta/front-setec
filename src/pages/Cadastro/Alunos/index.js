@@ -121,7 +121,7 @@ export default function Alunos() {
               />
             </label>
             <label htmlFor="cpf">
-              CPF
+              CPFs
               <input
                 type="text"
                 value={cpf}

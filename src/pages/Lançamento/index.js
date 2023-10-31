@@ -8,6 +8,7 @@ import Loading from '../../components/Loading';
 
 export default function Lancamento() {
   const [aluno, setNome] = useState('');
+  const [cpf, setCpf] = useState('');
   const [valor_matricula, setMatricula] = useState();
   const [desconto, setDesconto] = useState();
   const [valor_recebido, setRecebido] = useState();
@@ -159,26 +160,31 @@ export default function Lancamento() {
               </datalist>
               <div className="metodos">
                 <p>Pix</p>
-                <input type="radio" name="pix" value="Pix" onChange={(e) => setMetodo(e.target.value)} />
+                <input type="radio" name="metodo" value="Pix" onChange={(e) => setMetodo(e.target.value)} />
                 <p>Cartão</p>
-                <input type="radio" name="cartao" value="Cartão" onChange={(e) => setMetodo(e.target.value)} />
+                <input type="radio" name="metodo" value="Cartão" onChange={(e) => setMetodo(e.target.value)} />
                 <p>Dinheiro</p>
-                <input type="radio" name="dinheiro" value="Dinheiro" onChange={(e) => setMetodo(e.target.value)} />
+                <input type="radio" name="metodo" value="Dinheiro" onChange={(e) => setMetodo(e.target.value)} />
               </div>
             </section>
           </div>
           <div className="lado-2">
             <section>
-              <label htmlFor="nome_aluno">
+              <label htmlFor="cpf_aluno">
                 CPF do aluno
                 <input
                   autoComplete="off"
                   type="search"
-                  list="lista-alunos"
-                  id="nome_aluno"
-                  value={aluno}
-                  onChange={(e) => setNome(e.target.value)}
+                  list="lista-cpf"
+                  id="cpf_aluno"
+                  value={cpf}
+                  onChange={(e) => setCpf(e.target.value)}
                 />
+                <datalist id="lista-cpf">
+                  {listaAlunos && listaAlunos.map((aln) => (
+                    <option value={aln.cpf}>{aln.cpf}</option>
+                  ))}
+                </datalist>
               </label>
               <label htmlFor="val_rec">
                 Valor recebido

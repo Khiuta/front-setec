@@ -151,7 +151,7 @@ export default function Relação() {
         <div className="alunos">
           {alunos.filter((aluno) => (busca.toLowerCase() === ''
             ? aluno
-            : aluno.nome.toLowerCase().includes(busca)
+            : aluno.nome.toLowerCase().includes(busca.toLowerCase())
           )).map((aluno) => {
             if (info === aluno.id) {
               return (

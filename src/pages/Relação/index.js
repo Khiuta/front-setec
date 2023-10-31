@@ -28,6 +28,12 @@ export default function Relação() {
   const [t_nome, setTnome] = useState('');
   const [id, setId] = useState('');
 
+  const cor = [
+    colors.statusGreenColor,
+    colors.statusRedColor,
+    colors.statusGrayColor,
+  ];
+
   async function getData() {
     try {
       setIsLoading(true);
@@ -36,7 +42,6 @@ export default function Relação() {
       const response = await axios.get('/alunos');
       setAlunos(response.data);
       setInterval(() => {
-        console.log('oi');
         setIsLoading(false);
       }, 3000);
     } catch {
@@ -51,8 +56,6 @@ export default function Relação() {
   const handleDrop = (identifier) => {
     const newInfo = info === identifier ? false : identifier;
     setInfo(newInfo);
-    // console.log(identifier);
-    // console.log(info);
 
     const newStyle = style;
     switch (newStyle) {
@@ -69,7 +72,9 @@ export default function Relação() {
   };
 
   const handleRemove = async (identifier) => {
-    await axios.delete(`/alunos/${identifier}`);
+    await axios.put(`/alunos/${identifier}`, {
+      pagamento: 'cancelado',
+    });
     getData();
     const newPop = popup;
     setPopup(!newPop);
@@ -100,20 +105,36 @@ export default function Relação() {
     );
   }
 
+  const confirmacao = (pagante) => {
+    switch (pagante) {
+      case 'no prazo': {
+        return cor[0];
+      }
+      case 'devendo': {
+        return cor[1];
+      }
+      case 'cancelado': {
+        return cor[2];
+      }
+      default:
+        break;
+    }
+  };
+
   return (
     <>
       {popup && (
-      <Popup_del
-        p_nome={p_nome}
-        s_nome={s_nome}
-        t_nome={t_nome}
-        cancel={() => {
-          const newPop = popup;
-          setPopup(!newPop);
-        }}
-        confirm={handleRemove}
-        id={id}
-      />
+        <Popup_del
+          p_nome={p_nome}
+          s_nome={s_nome}
+          t_nome={t_nome}
+          cancel={() => {
+            const newPop = popup;
+            setPopup(!newPop);
+          }}
+          confirm={handleRemove}
+          id={id}
+        />
       )}
       <Title
         nome="Relação de alunos"
@@ -137,21 +158,11 @@ export default function Relação() {
                 <React.Fragment key={aluno.id}>
 
                   <section>
-                    {aluno.pagamento === 'devendo'
-                      ? (
-                        <BsFillCircleFill
-                          size={24}
-                          color={colors.statusRedColor}
-                          className="circle"
-                        />
-                      )
-                      : (
-                        <BsFillCircleFill
-                          size={24}
-                          color={colors.statusGreenColor}
-                          className="circle"
-                        />
-                      )}
+                    <BsFillCircleFill
+                      size={24}
+                      color={confirmacao(aluno.pagamento)}
+                      className="circle"
+                    />
                     <p>
                       {aluno.nome}
                     </p>
@@ -188,21 +199,11 @@ export default function Relação() {
             }
             return (
               <section key={aluno.id}>
-                {aluno.pagamento === 'devendo'
-                  ? (
-                    <BsFillCircleFill
-                      size={24}
-                      color={colors.statusRedColor}
-                      className="circle"
-                    />
-                  )
-                  : (
-                    <BsFillCircleFill
-                      size={24}
-                      color={colors.statusGreenColor}
-                      className="circle"
-                    />
-                  )}
+                <BsFillCircleFill
+                  size={24}
+                  color={confirmacao(aluno.pagamento)}
+                  className="circle"
+                />
                 <p>
                   {aluno.nome}
                 </p>

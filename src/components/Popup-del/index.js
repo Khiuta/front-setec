@@ -11,7 +11,7 @@ export default function Popup_del({
       <div className="box">
         <header>
           <h1>
-            Deseja apagar o aluno
+            Deseja cancelar o aluno
             {' '}
             {`${p_nome} ${s_nome} ${t_nome}`}
             ?

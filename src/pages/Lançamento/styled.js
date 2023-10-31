@@ -66,18 +66,16 @@ export const Content = styled.main`
     flex: 1 1 50%;
     height: 70%;
     align-items: center;
-    justify-content: center;
     // padding-left:10vw;
   }
 
   .lado-1 section {
     display: flex;
-    flex: 1 1 50%;
-    height: 60%;
+    flex: 1 1 100%;
+    height: 50%;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    // border: 1px solid black;
+    justify-content: center;
     font-size: 24px;
     gap: 15px;
   }
@@ -87,8 +85,7 @@ export const Content = styled.main`
     min-width: 80%;
     max-width: 100%;
     gap: 10px;
-    // border: 1px solid black;
-    justify-content: center;
+    word-wrap: break-word;
   }
 
   .lado-1 .metodos {
@@ -110,8 +107,7 @@ export const Content = styled.main`
     flex: 1 1 50%;
     height: 70%;
     align-items: center;
-    // background: beige;
-    // padding-left:10vw;
+
 
   }
 
@@ -120,7 +116,7 @@ export const Content = styled.main`
     flex: 1 1 100%;
     height: 50%;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     font-size: 24px;
     gap: 15px;

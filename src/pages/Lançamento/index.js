@@ -159,16 +159,27 @@ export default function Lancamento() {
               </datalist>
               <div className="metodos">
                 <p>Pix</p>
-                <input type="checkbox" value="Pix" onChange={(e) => setMetodo(e.target.value)} />
+                <input type="radio" name="pix" value="Pix" onChange={(e) => setMetodo(e.target.value)} />
                 <p>Cartão</p>
-                <input type="checkbox" value="Cartão" onChange={(e) => setMetodo(e.target.value)} />
+                <input type="radio" name="cartao" value="Cartão" onChange={(e) => setMetodo(e.target.value)} />
                 <p>Dinheiro</p>
-                <input type="checkbox" value="Dinheiro" onChange={(e) => setMetodo(e.target.value)} />
+                <input type="radio" name="dinheiro" value="Dinheiro" onChange={(e) => setMetodo(e.target.value)} />
               </div>
             </section>
           </div>
           <div className="lado-2">
             <section>
+              <label htmlFor="nome_aluno">
+                CPF do aluno
+                <input
+                  autoComplete="off"
+                  type="search"
+                  list="lista-alunos"
+                  id="nome_aluno"
+                  value={aluno}
+                  onChange={(e) => setNome(e.target.value)}
+                />
+              </label>
               <label htmlFor="val_rec">
                 Valor recebido
                 <input

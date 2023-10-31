@@ -13,7 +13,6 @@ export const Title = styled.div`
   h1 {
     font-style: italic;
     font-weight: 100;
-    text-shadow: 3px 3px rgba(0, 0, 0, .2);
   }
 @media only screen and (min-width: 820px) and (max-width: 900px){
 

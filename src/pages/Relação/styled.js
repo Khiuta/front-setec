@@ -130,7 +130,6 @@ export const Content = styled.main`
 
   section p {
     font-size: 20px;
-    text-shadow: 1px 3px rgba(0, 0, 0, .2);
   }
 
   section .circle {

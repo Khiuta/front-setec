@@ -3,24 +3,172 @@ import { primaryLightColor } from '../../config/colors';
 
 export const Search = styled.header`
   display: flex;
-  height: 60px;
+  height: 7vh;
   align-items: center;
   justify-content: flex-end;
   padding-right: 20px;
 
   input {
-    height: 40px;
+    height: 5vh;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 1vh;
     background: ${primaryLightColor};
-    width: 320px;
-    min-width: 200px;
+    width: 20vw;
+    min-width: 15vw;
     padding: 5px 0px 5px 10px;
   }
+  @media only screen and (min-width: 265px) and (max-width: 299px) {
+    display: flex;
+  height: 7vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
 
-  @media only screen and (max-width: 400px) {
-    justify-content: center;
-    padding: 5px;
+  input {
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    background: ${primaryLightColor};
+    width: 80vw;
+    min-width: 75vw;
+    padding: 5px 0px 5px 10px;
+  }
+  }
+  @media only screen and (min-width: 300px) and (max-width: 399px) {
+  display: flex;
+  height: 7vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  input {
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    background: ${primaryLightColor};
+    width: 75vw;
+    min-width: 70vw;
+    padding: 5px 0px 5px 10px;
+  }
+  }
+  @media only screen and (min-width: 400px) and (max-width: 649px) {
+    display: flex;
+  height: 7vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  input {
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    background: ${primaryLightColor};
+    width: 50vw;
+    min-width: 45vw;
+    padding: 5px 0px 5px 10px;
+  }
+  }
+  @media only screen and (min-width: 650px) and (max-width: 749px) {
+    display: flex;
+  height: 7vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  input {
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    background: ${primaryLightColor};
+    width: 40vw;
+    min-width: 35vw;
+    padding: 5px 0px 5px 10px;
+  }
+  }
+  @media only screen and (min-width: 750px) and (max-width: 859px) {
+    display: flex;
+  height: 7vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  input {
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    background: ${primaryLightColor};
+    width: 35vw;
+    min-width: 30vw;
+    padding: 5px 0px 5px 10px;
+  }
+  }
+  @media only screen and (min-width: 860px) and (max-width: 1000px) {
+    display: flex;
+  height: 7vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  input {
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    background: ${primaryLightColor};
+    width: 30vw;
+    min-width: 25vw;
+    padding: 5px 0px 5px 10px;
+  }
+  }
+  @media only screen and (min-width: 1001px) and (max-width: 1250px) {
+    display: flex;
+  height: 7vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  input {
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    background: ${primaryLightColor};
+    width: 30vw;
+    min-width: 25vw;
+    padding: 5px 0px 5px 10px;
+  }
+  }
+  @media only screen and (min-width: 1251px) and (max-width: 1410px) {
+    display: flex;
+  height: 7vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  input {
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    background: ${primaryLightColor};
+    width: 25vw;
+    min-width: 20vw;
+    padding: 5px 0px 5px 10px;
+  }
+  }
+  @media only screen and (min-width: 1411px) and (max-width: 1500px) {
+    display: flex;
+  height: 7vh;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  input {
+    height: 5vh;
+    border: 1px solid black;
+    border-radius: 1vh;
+    background: ${primaryLightColor};
+    width: 25vw;
+    min-width: 20vw;
+    padding: 5px 0px 5px 10px;
+  }
   }
 `;
 
@@ -28,16 +176,16 @@ export const Content = styled.main`
   display: flex;
   flex: 20 1 100%;
   height: calc(100vh - 100px);
-  padding: 20px;
+  padding: 2vh;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 2vh;
   overflow-y: scroll;
   background: rgba(0, 0, 0, .1);
   border-bottom: 50px solid rgba(255, 255,  255, 0);
 
   ::-webkit-scrollbar {
-      width: 10px;
+      width: 0px;
   }
   ::-webkit-scrollbar-track {
       background: #fff;
@@ -56,14 +204,14 @@ export const Content = styled.main`
     display: flex;
     flex: 1 1 18vw;
     max-width: 24vw;
-    max-height: 60%;
-    min-height: 40%;
+    max-height: 40vh;
+    min-height: 30vh;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 1vh;
     border: 1px solid black;
     justify-content: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 1vw;
     padding: 10px;
     background: ${primaryLightColor};
   }
@@ -96,18 +244,19 @@ export const Content = styled.main`
     display: flex;
     flex: 1 3 100%;
     justify-content: center;
+    font-size: 2.5vh;
   }
 
   .card .info {
     display: flex;
     flex: 3 1 100%;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 2.5vh;
     justify-content: center;
     align-items: center;
     text-align: center;
     word-wrap: break-word;
-    gap: 15px;
+    gap: 2vh;
     padding: 0px 10px 0px 10px;
   }
 
@@ -128,7 +277,7 @@ export const Content = styled.main`
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: center;
-    margin: 5px;
+    margin: 1vw;
     border-bottom: 60px solid rgba(255, 255, 255, 0);
 
 
@@ -154,8 +303,8 @@ export const Content = styled.main`
     }
 
     .card .info {
-      font-size: 1px;
-      gap: 10%;
+      font-size: 2.2vh;
+      gap: 5%;
     }
 
     .card header {
@@ -540,7 +689,7 @@ export const Content = styled.main`
       height: 30px;
     }
   }
-  @media only screen and (min-width: 1411px) and (max-width: 1600px) {
+  @media only screen and (min-width: 1411px) and (max-width: 1500px) {
     padding: 10px;
     padding-bottom: 50px;
 

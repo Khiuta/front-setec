@@ -220,8 +220,8 @@ export const Content = styled.main`
     align-items: flex-end;
     position: absolute;
 
-    left: 70%;
-    top:98%;
+    left: 35%;
+    top:96%;
   }
   }
   @media only screen and (min-width: 650px) and (max-width: 749px) {

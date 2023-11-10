@@ -131,12 +131,15 @@ font-weight: 100;
     align-items: center;
 
     height: 60px;
-    padding-left: 35px;
+    padding-left: 10px;
 
 
     h1 {
     font-style: italic;
     font-weight: 100;
+    font-size: 4vh;
+
+
 
   }
 }
@@ -150,12 +153,13 @@ font-weight: 100;
   align-items: center;
 
   height: 50px;
-  padding-left: 35px;
+  padding-left: 10px;
 
 
   h1 {
   font-style: italic;
   font-weight: 100;
+  font-size: 4vh;
 
   }
 
@@ -168,12 +172,13 @@ font-weight: 100;
   align-items: center;
 
   height: 45px;
-  padding-left: 35px;
+  padding-left: 10px;
 
 
   h1 {
   font-style: italic;
   font-weight: 100;
+  font-size: 4vh;
 
   }
 }

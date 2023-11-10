@@ -28,7 +28,7 @@ export const Nav = styled.nav`
       left: 1%;
       cursor: pointer;
     }
-    @media only screen and (min-width: 00px) and (max-width: 999px){
+    @media only screen and (min-width: 900px) and (max-width: 999px){
       position: static;
       background: ${primaryColor};
       display: flex;
@@ -252,7 +252,7 @@ export const Nav = styled.nav`
       font-family: 'Raleway', sans-serif;
       font-size: 30px;
       cursor: pointer;
-      left: 27%;
+      left: 20%;
       text-align: center;
     }
 
@@ -265,6 +265,7 @@ export const Nav = styled.nav`
       position: relative;
       left: 1%;
       cursor: pointer;
+      height: 5vh;
     }
   }
 `;

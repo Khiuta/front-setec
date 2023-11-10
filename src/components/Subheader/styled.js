@@ -159,7 +159,7 @@ font-weight: 100;
   h1 {
   font-style: italic;
   font-weight: 100;
-  font-size: 4vh;
+  font-size: 3vh;
 
   }
 
@@ -178,7 +178,7 @@ font-weight: 100;
   h1 {
   font-style: italic;
   font-weight: 100;
-  font-size: 4vh;
+  font-size: 3vh;
 
   }
 }

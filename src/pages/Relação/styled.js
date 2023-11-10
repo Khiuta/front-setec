@@ -132,9 +132,7 @@ export const Content = styled.main`
     font-size: 20px;
   }
 
-  section .circle {
-    float: left;
-  }
+  section .circle {320
 
   @keyframes turn-up {
     from {transform: rotate(0deg)}

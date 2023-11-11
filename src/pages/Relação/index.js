@@ -141,8 +141,8 @@ export default function Relação() {
           placeholder="Pesquise o aluno"
           onChange={(e) => setBusca(e.target.value)}
           id="pesquisa"
+          name="pesquisa"
         />
-        <FiSearch size={30} className="lupa" />
       </Search>
       <Content>
         <div className="alunos">

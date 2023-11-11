@@ -36,12 +36,6 @@ export const Search = styled.div`
       width: 90vw;
       box-shadow: 1px 3px rgba(0, 0, 0, 0.2);
     }
-
-    .lupa {
-      z-index: 3;
-      position: absolute;
-      left: 80%;
-    }
   }
 `;
 

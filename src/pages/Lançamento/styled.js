@@ -143,7 +143,7 @@ export const Content = styled.main`
     flex: 1 1 100%;
     height: calc(100vh - 300px);
     form {
-    display: column;
+    display: flex;
     flex-direction: row;
     align-items: center;
     flex: 1 1 100%;

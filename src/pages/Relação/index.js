@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { BsFillCircleFill } from 'react-icons/bs';
-import { FiSearch } from 'react-icons/fi';
-import { IoIosArrowDropdown } from 'react-icons/io';
-import { AiOutlineDelete } from 'react-icons/ai';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { BsFillCircleFill } from "react-icons/bs";
+import { FiSearch } from "react-icons/fi";
+import { IoIosArrowDropdown } from "react-icons/io";
+import { AiOutlineDelete } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 
-import axios from '../../services/axios';
-import * as actions from '../../store/modules/auth/actions';
-import * as colors from '../../config/colors';
-import { Content, Search } from './styled';
-import Title from '../../components/Subheader';
-import DropInfo from '../../components/DropInfo';
-import Loading from '../../components/Loading';
-import Popup_del from '../../components/Popup-del';
+import axios from "../../services/axios";
+import * as actions from "../../store/modules/auth/actions";
+import * as colors from "../../config/colors";
+import { Content, Search } from "./styled";
+import Title from "../../components/Subheader";
+import DropInfo from "../../components/DropInfo";
+import Loading from "../../components/Loading";
+import Popup_del from "../../components/Popup-del";
 
 export default function Relação() {
   const dispatch = useDispatch();
 
   const [info, setInfo] = useState(false);
-  const [style, setStyle] = useState('drop');
+  const [style, setStyle] = useState("drop");
   const [alunos, setAlunos] = useState([]);
-  const [busca, setBusca] = useState('');
+  const [busca, setBusca] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [popup, setPopup] = useState(false);
-  const [p_nome, setPnome] = useState('');
-  const [s_nome, setSnome] = useState('');
-  const [t_nome, setTnome] = useState('');
-  const [id, setId] = useState('');
+  const [p_nome, setPnome] = useState("");
+  const [s_nome, setSnome] = useState("");
+  const [t_nome, setTnome] = useState("");
+  const [id, setId] = useState("");
 
   const cor = [
     colors.statusGreenColor,
@@ -38,8 +38,8 @@ export default function Relação() {
     try {
       setIsLoading(true);
 
-      await axios.get('/lancamentos');
-      const response = await axios.get('/alunos');
+      await axios.get("/lancamentos");
+      const response = await axios.get("/alunos");
       setAlunos(response.data);
       setInterval(() => {
         setIsLoading(false);
@@ -59,21 +59,21 @@ export default function Relação() {
 
     const newStyle = style;
     switch (newStyle) {
-      case 'drop':
-        setStyle('drop-2');
+      case "drop":
+        setStyle("drop-2");
         break;
-      case 'drop-2':
-        setStyle('drop');
+      case "drop-2":
+        setStyle("drop");
         break;
       default:
-        setStyle('drop');
+        setStyle("drop");
         break;
     }
   };
 
   const handleRemove = async (identifier) => {
     await axios.put(`/alunos/${identifier}`, {
-      pagamento: 'cancelado',
+      pagamento: "cancelado",
     });
     getData();
     const newPop = popup;
@@ -85,7 +85,7 @@ export default function Relação() {
     setPopup(!newPop);
 
     let aluno = nome;
-    aluno = aluno.split(' ');
+    aluno = aluno.split(" ");
 
     setPnome(aluno[0]);
     setId(identifier);
@@ -96,24 +96,22 @@ export default function Relação() {
     }
 
     setSnome(aluno[1]);
-    setTnome('');
+    setTnome("");
   };
 
   if (isLoading) {
-    return (
-      <Loading />
-    );
+    return <Loading />;
   }
 
   const confirmacao = (pagante) => {
     switch (pagante) {
-      case 'no prazo': {
+      case "no prazo": {
         return cor[0];
       }
-      case 'devendo': {
+      case "devendo": {
         return cor[1];
       }
-      case 'cancelado': {
+      case "cancelado": {
         return cor[2];
       }
       default:
@@ -136,93 +134,89 @@ export default function Relação() {
           id={id}
         />
       )}
-      <Title
-        nome="Relação de alunos"
-      />
+      <Title nome="Relação de alunos" />
       <Search>
         <input
           type="text"
           placeholder="Pesquise o aluno"
           onChange={(e) => setBusca(e.target.value)}
+          id="pesquisa"
+          name="pesquisa"
         />
-        <FiSearch size={30} className="lupa" />
       </Search>
       <Content>
         <div className="alunos">
-          {alunos.filter((aluno) => (busca.toLowerCase() === ''
-            ? aluno
-            : aluno.nome.toLowerCase().includes(busca.toLowerCase())
-          )).map((aluno) => {
-            if (info === aluno.id) {
-              return (
-                <React.Fragment key={aluno.id}>
-
-                  <section>
-                    <BsFillCircleFill
-                      size={24}
-                      color={confirmacao(aluno.pagamento)}
-                      className="circle"
+          {alunos
+            .filter((aluno) =>
+              busca.toLowerCase() === ""
+                ? aluno
+                : aluno.nome.toLowerCase().includes(busca.toLowerCase()),
+            )
+            .map((aluno) => {
+              if (info === aluno.id) {
+                return (
+                  <React.Fragment key={aluno.id}>
+                    <section>
+                      <BsFillCircleFill
+                        size={24}
+                        color={confirmacao(aluno.pagamento)}
+                        className="circle"
+                      />
+                      <p>{aluno.nome}</p>
+                      <div className="icons">
+                        <AiOutlineDelete
+                          className="thrash"
+                          size={28}
+                          onClick={handlePop}
+                        />
+                        <IoIosArrowDropdown
+                          type="checkbox"
+                          onClick={() => handleDrop(aluno.id)}
+                          className="drop"
+                          size={28}
+                        />
+                      </div>
+                    </section>
+                    <DropInfo
+                      nome={aluno.nome}
+                      cpf={aluno.cpf}
+                      rg={aluno.rg}
+                      nasc={aluno.nascimento}
+                      igr={aluno.igreja}
+                      end={aluno.endereço}
+                      natu={aluno.cidade_estado}
+                      tel={aluno.telefone}
+                      stts={aluno.status_civil}
+                      turma={aluno.turma}
+                      matricula={aluno.created_at}
                     />
-                    <p>
-                      {aluno.nome}
-                    </p>
-                    <div className="icons">
-                      <AiOutlineDelete
-                        className="thrash"
-                        size={28}
-                        onClick={handlePop}
-                      />
-                      <IoIosArrowDropdown
-                        type="checkbox"
-                        onClick={() => handleDrop(aluno.id)}
-                        className="drop"
-                        size={28}
-                      />
-                    </div>
-                  </section>
-                  <DropInfo
-                    nome={aluno.nome}
-                    cpf={aluno.cpf}
-                    rg={aluno.rg}
-                    nasc={aluno.nascimento}
-                    igr={aluno.igreja}
-                    end={aluno.endereço}
-                    natu={aluno.cidade_estado}
-                    tel={aluno.telefone}
-                    stts={aluno.status_civil}
-                    turma={aluno.turma}
-                    matricula={aluno.created_at}
-
+                  </React.Fragment>
+                );
+              }
+              return (
+                <section key={aluno.id}>
+                  <BsFillCircleFill
+                    size={24}
+                    color={confirmacao(aluno.pagamento)}
+                    className="circle"
                   />
-                </React.Fragment>
+                  <p>{aluno.nome}</p>
+                  <div className="icons">
+                    <AiOutlineDelete
+                      className="thrash"
+                      size={28}
+                      onClick={() => handlePop(aluno.nome, aluno.id)}
+                    />
+                    <IoIosArrowDropdown
+                      type="checkbox"
+                      onClick={() => handleDrop(aluno.id)}
+                      className="drop"
+                      size={28}
+                    />
+                  </div>
+                </section>
               );
-            }
-            return (
-              <section key={aluno.id}>
-                <BsFillCircleFill
-                  size={24}
-                  color={confirmacao(aluno.pagamento)}
-                  className="circle"
-                />
-                <p>
-                  {aluno.nome}
-                </p>
-                <div className="icons">
-                  <AiOutlineDelete
-                    className="thrash"
-                    size={28}
-                    onClick={() => handlePop(aluno.nome, aluno.id)}
-                  />
-                  <IoIosArrowDropdown
-                    type="checkbox"
-                    onClick={() => handleDrop(aluno.id)}
-                    className="drop"
-                    size={28}
-                  />
-                </div>
-              </section>
-            );
-          })}
+            })}
         </div>
       </Content>
     </>

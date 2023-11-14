@@ -303,8 +303,8 @@ export const Content = styled.main`
       border: 1px solid;
       border-radius: 10px;
       width: 100%;
-      height: 13%;
-      min-height: 8%;
+      height: 15%;
+      min-height: 15%;
       align-items: center;
       gap: 10%;
       box-shadow: 3px 5px rgba(0, 0, 0, 0.2);

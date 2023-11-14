@@ -123,7 +123,7 @@ export const Form = styled.form`
     align-items: center;
     gap: 4vh;
 
-  font-size: 2.4vh;
+    font-size: 2.4vh;
 
   input{
     font-size: 1.7vh;
@@ -188,6 +188,10 @@ export const Form = styled.form`
     justify-content: space-around;
     gap: 10px;
 
+  }
+  input{
+    font-size: 1.7vh;
+    max-width: 200vw;
   }
   header{
     display: flex;

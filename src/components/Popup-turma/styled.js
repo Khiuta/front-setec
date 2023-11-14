@@ -65,7 +65,7 @@ export const Pop = styled.main`
       }
     }
   }
-  @media only screen and (min-width: 820px) and (max-width: 900px){
+  @media only screen and (min-width: 800px) and (max-width: 999px){
     display: flex;
   flex: 1 1 100%;
   min-width: 100%;
@@ -78,7 +78,7 @@ export const Pop = styled.main`
 
   .box {
     display: flex;
-    width: 90%;
+    width: 70%;
     min-height: 40vh;
     background: rgba(255, 255, 255, .6);
     box-shadow: 5px 6px rgba(0, 0, 0, .2);
@@ -113,7 +113,7 @@ export const Pop = styled.main`
 
       button {
         width: 10vw;
-        height: 4vh;
+        height: 8vh;
         border: none;
         border-radius: 10px;
         font-size: 15px;
@@ -195,7 +195,7 @@ export const Pop = styled.main`
     }
   }
   }
-  @media only screen and (min-width: 412px) and (max-width: 428px){
+  @media only screen and (min-width: 400px) and (max-width: 799px){
     display: flex;
   flex: 1 1 100%;
   min-width: 100%;

@@ -966,7 +966,7 @@ export const Content = styled.main`
     align-items: flex-start;
     justify-content: center;
     position: relative;
-    top: 13vh;
+    top: 16vh;
     }
     button {
     display: flex;

@@ -155,9 +155,10 @@ export const Content = styled.main`
   }
 
   .botao {
+    margin-top: 3vh;
     height: 3vh;
     position: absolute;
-    left:40%;
+    left:35%;
 
   }
   }

@@ -18,7 +18,7 @@ export const Search = styled.div`
     width: 15vw;
     box-shadow: 1px 3px rgba(0, 0, 0, 0.2);
   }
-  @media only screen and (min-width: 265px) and (max-width: 299px) {
+  @media only screen and (min-width: 300px) and (max-width: 399px) {
     display: flex;
     flex: 1 1 100vw;
     height: 55px;
@@ -33,7 +33,83 @@ export const Search = styled.div`
       background: ${colors.primaryLightColor};
       border-radius: 5px;
       padding: 1vh;
-      width: 90vw;
+      width: 100vw;
+      box-shadow: 1px 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+  @media only screen and (min-width: 400px) and (max-width: 499px) {
+    display: flex;
+    flex: 1 1 100vw;
+    height: 55px;
+    align-items: center;
+    padding-right: 2.5vh;
+    margin-left: 1vh;
+    justify-content: flex-start;
+    gap: 1vh;
+
+    input {
+      border: 1px solid;
+      background: ${colors.primaryLightColor};
+      border-radius: 5px;
+      padding: 1vh;
+      width: 80vw;
+      box-shadow: 1px 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+  @media only screen and (min-width: 500px) and (max-width: 599px) {
+    display: flex;
+    flex: 1 1 100vw;
+    height: 55px;
+    align-items: center;
+    padding-right: 2.5vh;
+    margin-left: 1vh;
+    justify-content: flex-start;
+    gap: 1vh;
+
+    input {
+      border: 1px solid;
+      background: ${colors.primaryLightColor};
+      border-radius: 5px;
+      padding: 1vh;
+      width:55vw;
+      box-shadow: 1px 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+  @media only screen and (min-width: 600px) and (max-width: 799px) {
+    display: flex;
+    flex: 1 1 100vw;
+    height: 55px;
+    align-items: center;
+    padding-right: 2.5vh;
+    margin-left: 1vh;
+    justify-content: flex-start;
+    gap: 1vh;
+
+    input {
+      border: 1px solid;
+      background: ${colors.primaryLightColor};
+      border-radius: 5px;
+      padding: 1vh;
+      width:55vw;
+      box-shadow: 1px 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+  @media only screen and (min-width: 800px) and (max-width: 999px) {
+    display: flex;
+    flex: 1 1 100vw;
+    height: 55px;
+    align-items: center;
+    padding-right: 2.5vh;
+    margin-left: 1vh;
+    justify-content: flex-start;
+    gap: 1vh;
+
+    input {
+      border: 1px solid;
+      background: ${colors.primaryLightColor};
+      border-radius: 5px;
+      padding: 1vh;
+      width:40vw;
       box-shadow: 1px 3px rgba(0, 0, 0, 0.2);
     }
   }
@@ -87,7 +163,7 @@ export const Content = styled.main`
   }
 
   section p {
-    font-size: 20px;
+    font-size: 3vh;
   }
 
   @keyframes turn-up {
@@ -227,7 +303,7 @@ export const Content = styled.main`
       border: 1px solid;
       border-radius: 10px;
       width: 100%;
-      height: 10%;
+      height: 13%;
       min-height: 8%;
       align-items: center;
       gap: 10%;
@@ -244,7 +320,8 @@ export const Content = styled.main`
 
     section p {
       display: flex;
-      font-size: 2vh;
+      font-size: 2.5vh;
+      max-width: 30vw;
     }
     section .drop {
       float: left;

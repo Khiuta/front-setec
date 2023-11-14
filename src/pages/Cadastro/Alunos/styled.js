@@ -155,7 +155,7 @@ export const Content = styled.main`
   }
 
   .botao {
-    margin-top: 3vh;
+    margin-top: 6vh;
     height: 3vh;
     position: absolute;
     left:35%;

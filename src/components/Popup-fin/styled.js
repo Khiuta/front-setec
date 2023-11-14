@@ -215,14 +215,14 @@ export const Popup = styled.div`
       width: 70px;
     }
   }
-  @media only screen and (min-width: 360px) and (max-width: 390px){
+  @media only screen and (min-width: 300px) and (max-width: 399px){
     background: ${primaryLightColor};
     display: flex;
     flex: 1 1 200px;
-    max-width: 400px;
+    max-width: 90vw;
     height: 200px;
     flex-direction: column;
-    margin: 20px;
+    margin: 2vh;
     font-weight: 500;
     border: 1px solid #000;
     border-radius: 10px;
@@ -243,7 +243,7 @@ export const Popup = styled.div`
     .mid {
       display: flex;
       flex: 1 1 100%;
-      align-items: flex-end;
+      align-items: center;
       padding: 20px 20px;
       gap: 15px;
     }
@@ -277,11 +277,11 @@ export const Popup = styled.div`
     }
 
     #mes {
-      width: 80px;
+      width: 25vw;
     }
 
     #ano {
-      width: 70px;
+      width: 12vw;
     }
   }
 `;

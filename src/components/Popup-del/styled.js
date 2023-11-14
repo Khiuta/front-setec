@@ -106,7 +106,7 @@ export const Pop = styled.main`
   }
   }
 
-  @media only screen and (min-width: 360px) and (max-width: 390px){
+  @media only screen and (min-width: 300px) and (max-width: 399px){
     display: flex;
   flex: 1 1 100%;
   min-width: 50%;

@@ -874,8 +874,8 @@ export const Content = styled.main`
     }
 
     input {
-    width: 140px;
-    font-size: 15px;
+    width: 20vh;
+    font-size: 2vh;
     padding: 2px 0px 2px 5px;
     font-family: 'Raleway';
     }
@@ -925,8 +925,9 @@ export const Content = styled.main`
 
 
     input {
-      width: 20px;
+      width: 5vw;
       height: 20px;
+      font-size: 2vh;
     }
 
     }

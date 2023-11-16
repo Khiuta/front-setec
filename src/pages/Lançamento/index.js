@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import moment from 'moment';
+import { useDispatch } from "react-redux";
+
 import axios from '../../services/axios';
 import Title from '../../components/Subheader';
 import { Content } from './styled';
 import Loading from '../../components/Loading';
+import * as actions from "../../store/modules/auth/actions";
 
 export default function Lancamento() {
+  const dispatch = useDispatch();
+
   const [aluno, setNome] = useState('');
   const [cpf, setCpf] = useState('');
   const [valor_matricula, setMatricula] = useState();
@@ -25,8 +30,8 @@ export default function Lancamento() {
 
   let calc = 0;
 
-  useEffect(() => {
-    async function getData() {
+  async function getData() {
+    try {
       setIsLoading(true);
 
       const response = await axios.get('/descontos');
@@ -38,7 +43,12 @@ export default function Lancamento() {
       console.log(descontos);
 
       setIsLoading(false);
+    } catch {
+      dispatch(actions.loginFailure());
     }
+  }
+
+  useEffect(() => {
     getData();
   }, []);
 
@@ -97,6 +107,18 @@ export default function Lancamento() {
     console.log(teste);
   };
 
+  const handleFillCPF = () => {
+    listaAlunos.forEach((aln) => {
+      if (aluno === aln.nome) setCpf(aln.cpf);
+    });
+  };
+
+  const handleFillName = () => {
+    listaAlunos.forEach((aln) => {
+      if (cpf === aln.cpf) setNome(aln.nome);
+    });
+  };
+
   if (isLoading) {
     return (
       <Loading />
@@ -119,6 +141,8 @@ export default function Lancamento() {
                   id="nome_aluno"
                   value={aluno}
                   onChange={(e) => setNome(e.target.value)}
+                  onBlur={handleFillCPF}
+                  onFocus={handleFillCPF}
                 />
               </label>
               <datalist id="lista-alunos">
@@ -179,6 +203,7 @@ export default function Lancamento() {
                   id="cpf_aluno"
                   value={cpf}
                   onChange={(e) => setCpf(e.target.value)}
+                  onBlur={handleFillName}
                 />
                 <datalist id="lista-cpf">
                   {listaAlunos && listaAlunos.map((aln) => (

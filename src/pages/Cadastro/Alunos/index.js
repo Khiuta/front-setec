@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import validator from 'validator';
 // import { get } from 'lodash';
@@ -18,6 +18,7 @@ export default function Alunos() {
   const [telefone, setTel] = useState('');
   const [status_civil, setStatus] = useState('');
   const [turma, setTurma] = useState('');
+  const [municipios, setMunicipios] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -102,6 +103,19 @@ export default function Alunos() {
     }
   };
 
+  async function getData() {
+    try {
+      const response = await axios.get('/municipios');
+      setMunicipios(response.data);
+    } catch {
+      toast.error('Ocorreu um erro na lista de municípios.');
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <>
       <Title
@@ -166,13 +180,20 @@ export default function Alunos() {
             <label htmlFor="ci/es">
               Cidade/Estado
               <input
-                type="text"
+                autoComplete="off"
+                type="search"
+                list="municipios"
                 value={cidade_estado}
                 onChange={(e) => setNatu(e.target.value)}
                 placeholder="Cidade e Estado de origem"
                 id="ci/es"
               />
             </label>
+            <datalist id="municipios">
+              {municipios && municipios.map((mun) => (
+                <option value={mun.name}>{mun.name}</option>
+              ))}
+            </datalist>
             <label htmlFor="tel">
               Telefone
               <input
